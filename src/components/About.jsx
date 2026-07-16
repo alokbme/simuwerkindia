@@ -124,7 +124,7 @@ export default function About() {
             text="About Simuwerk India"
             el="h2"
             delay={0.05}
-            className="mt-3 font-extrabold text-4xl md:text-5xl"
+            className="mt-3 font-extrabold text-4xl md:text-5xl text-white"
             style={{
               fontFamily: "'Syne', sans-serif",
               background: "linear-gradient(135deg, #fff 30%, #22d3ee)",

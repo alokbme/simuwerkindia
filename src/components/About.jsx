@@ -1,4 +1,3 @@
-
 // import { motion } from "framer-motion";
 
 // export default function About() {
@@ -85,11 +84,8 @@
 //   );
 // }
 
-
-
 // components/About.jsx
 // Dependencies: framer-motion  →  npm install framer-motion
-
 
 // components/About.jsx — with scroll animations
 import { motion } from "framer-motion";
@@ -100,14 +96,22 @@ import {
   SectionDivider,
 } from "../hooks/useScrollAnimations";
 
-const tools     = ["ANSYS", "Siemens StarCCM+", "OpenFOAM", "Altair HyperWorks"];
-const locations = ["Pune, India", "Kolhapur, India", "Germany", "United Kingdom"];
+const tools = ["ANSYS", "Siemens StarCCM+", "OpenFOAM", "Altair HyperWorks"];
+const locations = [
+  "Pune, India",
+  "Kolhapur, India",
+  "Germany",
+  "United Kingdom",
+];
 
 export default function About() {
   return (
-    <ParallaxSection bgSpeed={0.2} fgSpeed={0.06} className="py-24 px-4 bg-[#071428]">
+    <ParallaxSection
+      bgSpeed={0.2}
+      fgSpeed={0.06}
+      className="py-24 px-4 bg-[#071428]"
+    >
       <div className="max-w-6xl mx-auto">
-
         {/* Header */}
         <div className="text-center mb-14">
           <RevealBlock>
@@ -133,7 +137,6 @@ export default function About() {
 
         {/* Two-column */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
-
           {/* Left — Text */}
           <div className="space-y-5">
             <RevealBlock delay={0} direction="left">
@@ -146,19 +149,28 @@ export default function About() {
             </RevealBlock>
 
             {[
-              <>Founded in memory of{" "}
-                <strong className="text-slate-200">Late Shri. Mr. Avinash Narayan Bhasme</strong>
-                , former Chief Assistant to the Secretary, Government of Maharashtra —
-                Simuwerk India was established to bring world-class engineering simulation
-                to Indian and global industry.</>,
-              <>Our senior CFD & FEA consulting team brings over{" "}
-                <strong className="text-cyan-300">25+ years of global experience</strong>,
-                combining rigorous engineering fundamentals with advanced simulation
-                practices to deliver reliable, decision-ready insights.</>,
-              <>With a strong focus on{" "}
-                <strong className="text-slate-200">accuracy, validation, and practical applicability</strong>
-                , we help organizations de-risk designs, optimize performance, and accelerate
-                product development across complex industrial systems.</>,
+              <>
+                Simuwerk India was established to bring world-class engineering
+                simulation to Indian and global industry.
+              </>,
+              <>
+                Our senior CFD & FEA consulting team brings over{" "}
+                <strong className="text-cyan-300">
+                  25+ years of global experience
+                </strong>
+                , combining rigorous engineering fundamentals with advanced
+                simulation practices to deliver reliable, decision-ready
+                insights.
+              </>,
+              <>
+                With a strong focus on{" "}
+                <strong className="text-slate-200">
+                  accuracy, validation, and practical applicability
+                </strong>
+                , we help organizations de-risk designs, optimize performance,
+                and accelerate product development across complex industrial
+                systems.
+              </>,
             ].map((txt, i) => (
               <RevealBlock key={i} delay={0.1 + i * 0.08} direction="left">
                 <p className="text-slate-400 leading-relaxed">{txt}</p>
@@ -168,8 +180,8 @@ export default function About() {
             <RevealBlock delay={0.36} direction="left">
               <div className="border-l-4 border-sky-500 bg-sky-900/20 rounded-r-xl px-5 py-4">
                 <p className="text-slate-300 italic text-sm leading-relaxed">
-                  "De-risk designs · Optimize performance · Accelerate development with
-                  proven simulation practices"
+                  "De-risk designs · Optimize performance · Accelerate
+                  development with proven simulation practices"
                 </p>
               </div>
             </RevealBlock>
@@ -189,21 +201,39 @@ export default function About() {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
-              >S⚙</div>
-              <p className="text-slate-400 text-sm mb-6">India – Germany – UK Engineering Bridge</p>
+              >
+                S⚙
+              </div>
+              <p className="text-slate-400 text-sm mb-6">
+                India – Germany – UK Engineering Bridge
+              </p>
 
-              <p className="text-[0.65rem] tracking-widest uppercase text-slate-500 mb-2">Global Presence</p>
+              <p className="text-[0.65rem] tracking-widest uppercase text-slate-500 mb-2">
+                Global Presence
+              </p>
               <div className="flex flex-wrap gap-2 justify-center mb-7">
                 {locations.map((loc) => (
-                  <span key={loc} className="px-3 py-1 rounded-full bg-sky-900/40 border border-sky-700/40 text-cyan-300 text-xs font-medium">{loc}</span>
+                  <span
+                    key={loc}
+                    className="px-3 py-1 rounded-full bg-sky-900/40 border border-sky-700/40 text-cyan-300 text-xs font-medium"
+                  >
+                    {loc}
+                  </span>
                 ))}
               </div>
 
               <div className="border-t border-sky-900/40 pt-6">
-                <p className="text-[0.65rem] tracking-widest uppercase text-slate-500 mb-3">Tools We Use</p>
+                <p className="text-[0.65rem] tracking-widest uppercase text-slate-500 mb-3">
+                  Tools We Use
+                </p>
                 <div className="flex flex-wrap gap-2 justify-center">
                   {tools.map((tool) => (
-                    <span key={tool} className="px-3 py-1 rounded-full bg-amber-900/20 border border-amber-600/30 text-amber-300 text-xs font-medium">{tool}</span>
+                    <span
+                      key={tool}
+                      className="px-3 py-1 rounded-full bg-amber-900/20 border border-amber-600/30 text-amber-300 text-xs font-medium"
+                    >
+                      {tool}
+                    </span>
                   ))}
                 </div>
               </div>

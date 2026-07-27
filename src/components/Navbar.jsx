@@ -44,23 +44,20 @@
 //   );
 // }
 
-
-
-
 // components/Navbar.jsx
 // Frosted glass navbar — transparent at top, blur+border on scroll
 // Dependencies: framer-motion → npm install framer-motion
 
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
-
+import darkLogo from "../assets/simuwerklogodark.png";
 const navLinks = [
-  { label: "About",      href: "#about"      },
+  { label: "About", href: "#about" },
   { label: "Industries", href: "#industries" },
-  { label: "CFD",        href: "#cfd"        },
-  { label: "FEA",        href: "#fea"        },
-  { label: "Sugar",      href: "#sugar"      },
-  { label: "Value",      href: "#value"      },
+  { label: "CFD", href: "#cfd" },
+  { label: "FEA", href: "#fea" },
+  { label: "Sugar", href: "#sugar" },
+  { label: "Value", href: "#value" },
 ];
 
 export default function Navbar() {
@@ -77,14 +74,16 @@ export default function Navbar() {
 
   /* ── Track active section via IntersectionObserver ── */
   useEffect(() => {
-    const sections = navLinks.map((l) => document.querySelector(l.href)).filter(Boolean);
+    const sections = navLinks
+      .map((l) => document.querySelector(l.href))
+      .filter(Boolean);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     sections.forEach((s) => observer.observe(s));
     return () => sections.forEach((s) => observer.unobserve(s));
@@ -129,41 +128,19 @@ export default function Navbar() {
           style={{
             border: "1px solid",
             backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-            WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+            WebkitBackdropFilter: scrolled
+              ? "blur(20px) saturate(180%)"
+              : "none",
           }}
         >
           <div className="flex items-center justify-between px-5 py-3">
-
             {/* Logo */}
             <motion.a
               href="#hero"
               className="flex items-center gap-2 group"
               whileHover={{ scale: 1.02 }}
             >
-              {/* Gear icon mark */}
-              <motion.div
-                className="w-7 h-7 rounded-lg flex items-center justify-center text-sm"
-                style={{
-                  background: "linear-gradient(135deg, #0ea5e9, #22d3ee)",
-                  boxShadow: "0 0 12px rgba(14,165,233,0.4)",
-                }}
-                whileHover={{ rotate: 90 }}
-                transition={{ duration: 0.4 }}
-              >
-                ⚙
-              </motion.div>
-
-              <span
-                className="font-extrabold text-sm tracking-[0.12em] uppercase"
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  background: "linear-gradient(90deg, #fff, #7dd3fc)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Simuwerk India
-              </span>
+              <img src={darkLogo} alt="Logo" width={200} />
             </motion.a>
 
             {/* Desktop nav links */}
@@ -196,8 +173,15 @@ export default function Navbar() {
                         <motion.span
                           layoutId="activePill"
                           className="absolute inset-0 rounded-lg"
-                          style={{ background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.25)" }}
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          style={{
+                            background: "rgba(14,165,233,0.12)",
+                            border: "1px solid rgba(14,165,233,0.25)",
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30,
+                          }}
                         />
                       )}
                       <span className="relative z-10">{link.label}</span>
@@ -240,7 +224,7 @@ export default function Navbar() {
                   className="block w-5 h-[1.5px] bg-slate-300 rounded-full"
                   animate={{
                     rotate: menuOpen ? (i === 0 ? 45 : i === 2 ? -45 : 0) : 0,
-                    y:      menuOpen ? (i === 0 ? 6.5 : i === 2 ? -6.5 : 0) : 0,
+                    y: menuOpen ? (i === 0 ? 6.5 : i === 2 ? -6.5 : 0) : 0,
                     opacity: menuOpen && i === 1 ? 0 : 1,
                   }}
                   transition={{ duration: 0.25 }}
@@ -252,7 +236,10 @@ export default function Navbar() {
           {/* Mobile menu */}
           <motion.div
             initial={false}
-            animate={{ height: menuOpen ? "auto" : 0, opacity: menuOpen ? 1 : 0 }}
+            animate={{
+              height: menuOpen ? "auto" : 0,
+              opacity: menuOpen ? 1 : 0,
+            }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden md:hidden"
           >
@@ -272,7 +259,9 @@ export default function Navbar() {
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
                 className="mt-2 py-2.5 px-4 rounded-xl text-sm font-semibold text-white text-center"
-                style={{ background: "linear-gradient(135deg, #0ea5e9, #22d3ee)" }}
+                style={{
+                  background: "linear-gradient(135deg, #0ea5e9, #22d3ee)",
+                }}
               >
                 Contact Us →
               </a>

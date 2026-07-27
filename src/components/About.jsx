@@ -95,6 +95,7 @@ import {
   RevealBlock,
   SectionDivider,
 } from "../hooks/useScrollAnimations";
+import lightLogo from "../assets/simuwerklogodark.png";
 
 const tools = ["ANSYS", "Siemens StarCCM+", "OpenFOAM", "Altair HyperWorks"];
 const locations = [
@@ -193,17 +194,13 @@ export default function About() {
               className="bg-gradient-to-br from-sky-900/30 to-orange-900/10 border border-sky-800/30 rounded-2xl p-8 text-center"
               whileHover={{ boxShadow: "0 20px 60px rgba(14,165,233,0.14)" }}
             >
-              <div
-                className="text-6xl font-extrabold mb-1"
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  background: "linear-gradient(135deg, #22d3ee, #0ea5e9)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                S⚙
-              </div>
+              <img
+                className="mx-auto mb-4"
+                src={lightLogo}
+                alt="Logo"
+                width={200}
+              />
+
               <p className="text-slate-400 text-sm mb-6">
                 India – Germany – UK Engineering Bridge
               </p>

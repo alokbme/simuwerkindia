@@ -121,6 +121,11 @@ export default function Contact() {
             </p>
             <p className="text-3xl font-semibold mb-8">+91 92709 41867</p>
             <p className="text-xl">Pune / Kolhapur • Germany • UK</p>
+            <br />
+            <p className="text-xl">
+              Office No: 402; 4th floor, Office Tower, Vision One, Near Bhumkar
+              Chowk, Tathawade Pune 411033
+            </p>
           </div>
 
           <form className="space-y-6" onSubmit={handleSubmit} noValidate>
